@@ -170,6 +170,30 @@ section { scroll-margin-top: 70px; }
 }
 @media (max-width: 520px) { .svc-open ul { grid-template-columns: 1fr; } }
 
+/* Before and after */
+.ba { padding-block: clamp(4.5rem, 9vw, 7.5rem) 0; }
+.ba-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 1.5rem 3rem; margin-bottom: 1.8rem; }
+.head-text { display: grid; gap: 1rem; max-width: 720px; }
+.ba-tabs { display: flex; flex-wrap: wrap; gap: .5rem; }
+.ba-tabs button { padding: .75rem 1.1rem; border-radius: var(--r-sm); border: 1.5px solid var(--line); background: var(--paper); color: var(--ink); font: 600 .95rem/1 var(--font-body); cursor: pointer; transition: background-color .2s, color .2s, border-color .2s; }
+.ba-tabs button[aria-selected="true"] { background: var(--navy); border-color: var(--navy); color: var(--on-dark); }
+.compare { position: relative; border-radius: var(--r); overflow: hidden; aspect-ratio: 16 / 10; max-height: 78vh; width: 100%; touch-action: pan-y; user-select: none; background: var(--mist); }
+.compare img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 68%; }
+.compare .after-wrap { position: absolute; inset: 0; clip-path: inset(0 0 0 var(--pos, 50%)); }
+.compare .handle { position: absolute; top: 0; bottom: 0; left: var(--pos, 50%); width: 0; pointer-events: none; }
+.compare .handle::before { content: ""; position: absolute; top: 0; bottom: 0; left: -1.5px; width: 3px; background: var(--paper); box-shadow: 0 0 12px rgba(0,0,0,.35); }
+.compare .grip { position: absolute; top: 50%; left: 0; transform: translate(-50%, -50%); width: 64px; height: 64px; border-radius: 50%; background: var(--amber); color: var(--night); display: flex; align-items: center; justify-content: center; gap: 2px; box-shadow: 0 8px 24px -8px rgba(0,0,0,.5); }
+.compare .grip svg { width: 16px; height: 16px; }
+.compare input[type="range"] { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; margin: 0; }
+.compare input[type="range"]:focus-visible ~ .handle .grip { outline: 3px solid var(--paper); outline-offset: 3px; }
+.compare .tag-b, .compare .tag-a { position: absolute; top: 1rem; padding: .45rem .8rem; border-radius: var(--r-sm); background: rgba(1,18,42,.8); color: var(--on-dark); font-size: .88rem; font-weight: 700; pointer-events: none; }
+.compare .tag-b { left: 1rem; } .compare .tag-a { right: 1rem; }
+.ba-cap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .8rem 2rem; margin-top: 1.1rem; }
+.ba-cap p { font-weight: 600; max-width: 60ch; }
+.ba-tags { display: flex; gap: .5rem; }
+.ba-tags span { padding: .3rem .7rem; border-radius: var(--r-sm); background: var(--mist); color: var(--muted); font-size: .88rem; font-weight: 600; }
+@media (max-width: 700px) { .compare { aspect-ratio: 3 / 4; } }
+
 /* Proof: footage behind client words */
 .proof { position: relative; color: var(--on-dark); isolation: isolate; overflow: hidden; background: var(--night); }
 .proof video, .proof .poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }

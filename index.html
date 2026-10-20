@@ -56,7 +56,7 @@
     <nav class="nav" aria-label="Main">
       <a href="#services">Services</a>
       <a href="#about">About</a>
-      <a href="#onsite">On the job</a>
+      <a href="#work">Our work</a>
       <a href="#area">Service area</a>
       <a href="#faq">FAQ</a>
     </nav>
@@ -130,7 +130,7 @@
 
       <div class="svc" id="svc">
         <article class="svc-item" data-open="true" data-i="0">
-          <div class="bg"><video muted loop playsinline preload="none" poster="assets/video/procurement.jpg" aria-hidden="true"><source src="assets/video/procurement.mp4" type="video/mp4"></video></div>
+          <div class="bg"><video muted loop playsinline preload="none" poster="assets/video/delivery.jpg" aria-hidden="true"><source src="assets/video/delivery.mp4" type="video/mp4"></video></div>
           <button class="svc-trigger" type="button" aria-expanded="true" aria-controls="svc-0"><span class="svc-closed"><span class="n">01</span><span class="t">Procurement</span></span></button>
           <div class="svc-open" id="svc-0">
             <span class="n">01 Procurement</span>
@@ -163,7 +163,7 @@
           </div>
         </article>
         <article class="svc-item" data-open="false" data-i="3">
-          <div class="bg"><img src="assets/photo/concrete-trowel.webp" alt="" loading="lazy"></div>
+          <div class="bg"><img src="assets/photo/stoop-before.webp" alt="" loading="lazy"></div>
           <button class="svc-trigger" type="button" aria-expanded="false" aria-controls="svc-3"><span class="svc-closed"><span class="n">04</span><span class="t">Concrete restoration</span></span></button>
           <div class="svc-open" id="svc-3">
             <span class="n">04 Concrete restoration</span>
@@ -174,7 +174,7 @@
           </div>
         </article>
         <article class="svc-item" data-open="false" data-i="4">
-          <div class="bg"><img src="assets/photo/finished-interior.webp" alt="" loading="lazy"></div>
+          <div class="bg"><img src="assets/photo/barn-floor-clean.webp" alt="" loading="lazy"></div>
           <button class="svc-trigger" type="button" aria-expanded="false" aria-controls="svc-4"><span class="svc-closed"><span class="n">05</span><span class="t">Post-construction cleaning</span></span></button>
           <div class="svc-open" id="svc-4">
             <span class="n">05 Post-construction cleaning</span>
@@ -188,10 +188,34 @@
     </div>
   </section>
 
+  <section class="ba" id="work" aria-labelledby="work-title">
+    <div class="wrap">
+      <div class="ba-head">
+        <div class="head-text">
+          <span class="label">Before and after</span>
+          <h2 id="work-title">Drag to see the difference</h2>
+        </div>
+        <div class="ba-tabs" role="tablist" aria-label="Choose a project" id="ba-tabs">
+          <button role="tab" aria-selected="true" data-b="assets/photo/wall-before.webp" data-a="assets/photo/wall-after.webp" data-cap="Failing block retaining wall refaced in red brick, with a soldier course cap and end piers" data-tags="Masonry|Retaining wall">Retaining wall</button>
+          <button role="tab" aria-selected="false" tabindex="-1" data-b="assets/photo/window-before.webp" data-a="assets/photo/window-after.webp" data-cap="Window opening infilled with brick and mortar matched to the existing wall" data-tags="Masonry|Brick matching">Window infill</button>
+          <button role="tab" aria-selected="false" tabindex="-1" data-b="assets/photo/stoop-before.webp" data-a="assets/photo/stoop-after.webp" data-cap="Stoop rebuilt with a herringbone brick inlay inside a concrete border" data-tags="Concrete restoration|Masonry">Herringbone stoop</button>
+        </div>
+      </div>
+      <div class="compare" id="compare" style="--pos: 50%">
+        <img class="before" id="ba-before" src="assets/photo/wall-before.webp" alt="Before: cracked concrete block retaining wall with new brick starting at the base">
+        <div class="after-wrap"><img id="ba-after" src="assets/photo/wall-after.webp" alt="After: finished red brick retaining wall with end piers"></div>
+        <span class="tag-b">Before</span><span class="tag-a">After</span>
+        <input type="range" min="0" max="100" value="50" id="compare-range" aria-label="Slide to compare before and after">
+        <span class="handle" aria-hidden="true"><span class="grip"><svg><use href="#left"/></svg><svg><use href="#arrow"/></svg></span></span>
+      </div>
+      <div class="ba-cap"><p id="ba-cap">Failing block retaining wall refaced in red brick, with a soldier course cap and end piers</p><div class="ba-tags" id="ba-tags"><span>Masonry</span><span>Retaining wall</span></div></div>
+    </div>
+  </section>
+
   <section class="lead" id="about" aria-labelledby="about-title">
     <div class="wrap">
       <figure>
-        <img src="assets/photo/crew-two.webp" alt="Avant Total Solutions crew on a job site" width="580" height="453" loading="lazy">
+        <img src="assets/photo/crew-two.webp" alt="Jimmy Harris on a job site with a site supervisor" width="580" height="453" loading="lazy">
       </figure>
       <div class="lead-copy">
         <span class="label">Lead operator</span>
@@ -238,12 +262,12 @@
       </div>
     </div>
     <div class="strip" id="strip" tabindex="0" aria-label="Job site photos">
-      <figure><img src="assets/photo/brick-veneer-1.webp" alt="Dark brick veneer going up on a building" width="648" height="664"><figcaption>Brick veneer<span>Masonry</span></figcaption></figure>
-      <figure><img src="assets/photo/crew-handshake.webp" alt="ATS crew member shaking hands with a site supervisor" loading="lazy" width="375" height="442"><figcaption>Walkthrough with the site team<span>Hoist manpower</span></figcaption></figure>
-      <figure><img src="assets/photo/brick-level.webp" alt="Mason checking a brick wall with a level" loading="lazy" width="627" height="616"><figcaption>Plumb and level<span>Masonry</span></figcaption></figure>
+      <figure><img src="assets/photo/veneer-closeup.webp" alt="Mason laying dark brick veneer against new block" loading="lazy" width="1600" height="1067"><figcaption>Brick veneer over CMU<span>Masonry</span></figcaption></figure>
+      <figure><img src="assets/photo/herringbone-walk.webp" alt="Herringbone brick walkway set in a timber border" loading="lazy" width="1200" height="1600"><figcaption>Herringbone walkway<span>Masonry</span></figcaption></figure>
+      <figure><img src="assets/photo/crew-handshake.webp" alt="Jimmy Harris shaking hands with a site supervisor" loading="lazy" width="375" height="442"><figcaption>Jimmy Harris with the site team<span>Hoist manpower</span></figcaption></figure>
+      <figure><img src="assets/photo/brick-veneer-1.webp" alt="Dark brick veneer going up on a building" loading="lazy" width="648" height="664"><figcaption>Veneer wall going up<span>Masonry</span></figcaption></figure>
+      <figure><img src="assets/photo/barn-floor-clean.webp" alt="Barn aisle concrete floor freshly washed" loading="lazy" width="1200" height="1600"><figcaption>Barn aisle washdown<span>Cleaning</span></figcaption></figure>
       <figure><img src="assets/photo/crane-operator.webp" alt="Operator in the cab of a red crane" loading="lazy" width="487" height="614"><figcaption>Lifts on schedule<span>Hoist manpower</span></figcaption></figure>
-      <figure><img src="assets/photo/worker-hardhat.webp" alt="Crew member in an Avant hard hat" loading="lazy" width="521" height="669"><figcaption>Safety first, every shift<span>OSHA trained</span></figcaption></figure>
-      <figure><img src="assets/photo/pavers.webp" alt="Crew setting pavers from a pallet" loading="lazy" width="643" height="710"><figcaption>Pavers and walkways<span>Masonry</span></figcaption></figure>
     </div>
   </section>
 

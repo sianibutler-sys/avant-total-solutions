@@ -93,6 +93,32 @@
     });
   });
 
+  /* Before and after */
+  var cmp = $('#compare'), range = $('#compare-range');
+  range.addEventListener('input', function () { cmp.style.setProperty('--pos', range.value + '%'); });
+  var babtns = $$('#ba-tabs [role="tab"]');
+  function pickBA(i, focus) {
+    babtns.forEach(function (b, j) { b.setAttribute('aria-selected', String(i === j)); b.tabIndex = i === j ? 0 : -1; });
+    if (focus) babtns[i].focus();
+    var b = babtns[i];
+    $('#ba-before').src = b.dataset.b; $('#ba-after').src = b.dataset.a;
+    $('#ba-before').alt = 'Before: ' + b.dataset.cap; $('#ba-after').alt = 'After: ' + b.dataset.cap;
+    $('#ba-cap').textContent = b.dataset.cap;
+    var tags = $('#ba-tags'); tags.replaceChildren();
+    b.dataset.tags.split('|').forEach(function (t) { var s = document.createElement('span'); s.textContent = t; tags.appendChild(s); });
+    range.value = 50; cmp.style.setProperty('--pos', '50%');
+  }
+  babtns.forEach(function (b, i) {
+    b.addEventListener('click', function () { pickBA(i, false); });
+    b.addEventListener('keydown', function (e) {
+      var n = babtns.length, t = null;
+      if (e.key === 'ArrowRight') t = (i + 1) % n;
+      if (e.key === 'ArrowLeft') t = (i - 1 + n) % n;
+      if (t !== null) { e.preventDefault(); pickBA(t, true); }
+    });
+  });
+  babtns.forEach(function (b) { [b.dataset.b, b.dataset.a].forEach(function (src) { var im = new Image(); im.src = src; }); });
+
   /* Photo strip */
   var strip = $('#strip');
   var step = function (dir) { var f = $('figure', strip); strip.scrollBy({ left: dir * (f.offsetWidth + 14), behavior: reduce ? 'auto' : 'smooth' }); };
