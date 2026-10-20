@@ -29,7 +29,7 @@ BUSINESS = {
     "name": "Avant Total Solutions",
     "url": SITE + "/",
     "logo": SITE + "/assets/img/logo-stacked.png",
-    "image": SITE + "/assets/video/hero.jpg",
+    "image": SITE + "/assets/photo/wall-after.webp",
     "telephone": "+1-410-357-1406",
     "email": "hello@avanttotalsolutions.com",
     "address": {"@type": "PostalAddress", "addressLocality": "Annapolis", "addressRegion": "MD", "addressCountry": "US"},
@@ -309,11 +309,11 @@ def jsonld_service(slug, name, desc, faqs):
 
 PAIRS = {
     "wall": {"name": "Retaining wall", "b": "assets/photo/wall-before.webp", "a": "assets/photo/wall-after.webp",
-             "cap": "Failing block retaining wall refaced in red brick, with a soldier course cap and end piers", "tags": "Masonry|Retaining wall"},
+             "cap": "Failing block retaining wall refaced in red brick, with a soldier course cap and end piers", "tags": "Mt. Airy, Philadelphia|Masonry"},
     "window": {"name": "Window infill", "b": "assets/photo/window-before.webp", "a": "assets/photo/window-after.webp",
-               "cap": "Window opening infilled with brick and mortar matched to the existing wall", "tags": "Masonry|Brick matching"},
+               "cap": "Window opening infilled with brick and mortar matched to the existing wall", "tags": "Mt. Airy, Philadelphia|Masonry"},
     "stoop": {"name": "Herringbone stoop", "b": "assets/photo/stoop-before.webp", "a": "assets/photo/stoop-after.webp",
-              "cap": "Stoop rebuilt with a herringbone brick inlay inside a concrete border", "tags": "Concrete restoration|Masonry"},
+              "cap": "Stoop rebuilt with a herringbone brick inlay inside a concrete border", "tags": "Mt. Airy, Philadelphia|Concrete restoration"},
 }
 
 PAGES = []
@@ -429,7 +429,7 @@ PAGES.append(dict(
     + split_block("Why it matters", "Your hoist sets the pace of the site",
         ["Every delivery, every material move and every personnel lift runs through the hoist. When the operator falls behind, so does every trade waiting on the car.",
          "Our operators are trained in the field by Jimmy Harris, a Local 542 hoist operator who has also laid brick with BAC Local 1. They know what's riding on each load and how to keep several trades moving at once."],
-        "assets/photo/crew-handshake.webp", "Jimmy Harris with a site supervisor")
+        "assets/photo/crew-handshake.webp", "Jimmy Harris on site at 12th and Spring Garden in Philadelphia")
     + scope_block([
         ("Equipment we run", ["Outside construction hoists", "Inside personnel elevators", "Inside material elevators"]),
         ("Sites we work", ["High-rise construction", "Multi-family buildings", "Commercial and mixed-use projects"]),
@@ -608,22 +608,20 @@ OTHER.append(dict(slug="about", name="About", title="About Avant Total Solutions
 
 # Projects
 PROJ = [
-    ("pair", "wall", "masonry", "Retaining wall refaced in red brick", "Masonry"),
-    ("pair", "window", "masonry", "Window opening bricked in to match", "Masonry"),
-    ("pair", "stoop", "concrete", "Stoop rebuilt with a herringbone inlay", "Concrete restoration"),
-    ("img", "assets/photo/herringbone-walk.webp", "masonry", "Herringbone brick walkway", "Masonry"),
-    ("img", "assets/photo/veneer-closeup.webp", "masonry", "Brick veneer over CMU", "Masonry"),
-    ("img", "assets/photo/brick-veneer-1.webp", "masonry", "Veneer wall going up", "Masonry"),
-    ("img", "assets/photo/barn-floor-clean.webp", "concrete", "Barn aisle concrete", "Concrete restoration"),
-    ("img", "assets/video/hoist.jpg", "hoist", "Night shift on the hoist deck", "Hoist manpower"),
-    ("img", "assets/photo/crew-handshake.webp", "hoist", "Jimmy Harris with the site team", "Hoist manpower"),
-    ("img", "assets/video/delivery.jpg", "procurement", "Supersack delivery by boom truck", "Procurement"),
-    ("img", "assets/video/hero.jpg", "hoist", "High-rise site with tower cranes", "Hoist manpower"),
-    ("img", "assets/photo/crane-operator.webp", "hoist", "Lifts on schedule", "Hoist manpower"),
+    ("pair", "wall", "masonry", "Retaining wall refaced in red brick", "Masonry, Mt. Airy"),
+    ("pair", "window", "masonry", "Window opening bricked in to match", "Masonry, Mt. Airy"),
+    ("pair", "stoop", "concrete", "Stoop rebuilt with a herringbone inlay", "Concrete restoration, Mt. Airy"),
+    ("img", "assets/photo/herringbone-walk.webp", "masonry", "Herringbone brick walkway", "Masonry, Mt. Airy"),
+    ("img", "assets/photo/veneer-closeup.webp", "masonry", "Brick veneer over CMU", "Masonry, Southwest Philadelphia"),
+    ("img", "assets/photo/brick-veneer-1.webp", "masonry", "Veneer wall going up", "Masonry, Southwest Philadelphia"),
+    ("img", "assets/photo/barn-floor-clean.webp", "concrete", "Barn aisle concrete", "Concrete restoration, Luzerne County, PA"),
+    ("img", "assets/video/delivery.jpg", "procurement", "Supersack delivery by boom truck", "Procurement, Southwest Philadelphia"),
+    ("img", "assets/photo/crew-handshake.webp", "hoist", "Jimmy Harris at 12th &amp; Spring Garden", "Asian Center, Philadelphia"),
+    ("img", "assets/video/hoist.jpg", "hoist", "Jimmy Harris on the hoist at 34th &amp; Arch", "Drexel University life sciences and mixed-use development, University City. Jimmy's own work before Avant."),
 ]
 def projects_body():
     chips = "".join(f'<button type="button" data-f="{k}" aria-pressed="{"true" if k == "all" else "false"}">{n}</button>' for k, n in
-        [("all", "All work"), ("masonry", "Masonry"), ("concrete", "Concrete"), ("hoist", "Hoist"), ("procurement", "Procurement")])
+        [("all", "All work"), ("masonry", "Masonry"), ("concrete", "Concrete"), ("hoist", "Hoist and site work"), ("procurement", "Procurement")])
     cards = ""
     for kind, src, cat, cap, tag in PROJ:
         if kind == "pair":
@@ -660,7 +658,7 @@ def area_body():
     svc = "".join(f'<a href="{slug}.html">{name}</a>' for slug, name, _ in SERVICES)
     return simple_hero("Service area", "Four states, based in Annapolis",
         "Every service we offer is available across Maryland, Pennsylvania, New Jersey and Delaware. Outside these counties? Call anyway. We travel for the right project.",
-        "assets/video/hero.jpg") + f"""
+        "assets/photo/veneer-closeup.webp") + f"""
   <section class="sp" aria-labelledby="regions-title">
     <div class="wrap">
       <div class="sp-head"><span class="label">Where we work</span><h2 id="regions-title">Counties and towns we serve</h2></div>
@@ -675,7 +673,7 @@ def area_body():
   </section>""" + cta_block("Not sure yet", "Not sure if we cover your area?")
 OTHER.append(dict(slug="service-area", name="Service area", title="Service Area: Maryland, Pennsylvania, New Jersey and Delaware | Avant Total Solutions",
     desc="Avant Total Solutions serves Anne Arundel, Baltimore, Howard and Prince George's in Maryland, Greater Philadelphia, South and Central New Jersey, and all of Delaware.",
-    image="assets/video/hero.jpg", body=area_body))
+    image="assets/photo/wall-after.webp", body=area_body))
 
 # Contact
 def contact_body():
@@ -697,7 +695,7 @@ def contact_body():
   </section>"""
 OTHER.append(dict(slug="contact", name="Contact", title="Contact and Free Quote | Avant Total Solutions",
     desc="Request a free, itemized quote from Avant Total Solutions. Call or text 410-357-1406, email hello@avanttotalsolutions.com, or send the three-step quote form.",
-    image="assets/video/hero.jpg", body=contact_body))
+    image="assets/photo/wall-after.webp", body=contact_body))
 
 # Privacy
 def privacy_body():
@@ -731,7 +729,7 @@ def privacy_body():
   </section>"""
 OTHER.append(dict(slug="privacy", name="Privacy policy", title="Privacy Policy | Avant Total Solutions",
     desc="How Avant Total Solutions collects, uses and protects information sent through avanttotalsolutions.com.",
-    image="assets/video/hero.jpg", body=privacy_body))
+    image="assets/photo/wall-after.webp", body=privacy_body))
 
 
 def build():
@@ -740,7 +738,7 @@ def build():
     home_ld = [BUSINESS, {"@type": "WebSite", "@id": SITE + "/#site", "url": SITE + "/", "name": "Avant Total Solutions"}]
     out = head("Avant Total Solutions | Masonry, Concrete, Hoist Manpower and Cleaning",
                "Masonry, concrete restoration, Local 542 hoist operators, procurement and post-construction cleaning across Maryland, Pennsylvania, New Jersey and Delaware. Free itemized quotes.",
-               "", "assets/video/hero.jpg", home_ld, preload="assets/video/hero.jpg") + header(home=True) + "\n" + main + "\n" + footer(home=True)
+               "", "assets/photo/wall-after.webp", home_ld, preload="assets/video/masonry-wide.jpg") + header(home=True) + "\n" + main + "\n" + footer(home=True)
     open("index.html", "w").write(out)
     urls = [SITE + "/"]
     for p in PAGES:
