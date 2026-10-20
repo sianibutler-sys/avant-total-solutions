@@ -81,6 +81,8 @@ def head(title, desc, path, image, jsonld, preload=None):
 
 def header(current=None, home=False):
     h = "" if home else "./"
+    quote = "#quote" if home else "contact.html"
+    cur = lambda slug: ' aria-current="page"' if slug == current else ""
     dd = "".join(
         f'<a href="{slug}.html"{" aria-current=\"page\"" if slug == current else ""}><b>{name}</b><small>{blurb}</small></a>'
         for slug, name, blurb in SERVICES)
@@ -94,14 +96,14 @@ def header(current=None, home=False):
         <button type="button" id="nav-dd-btn" aria-expanded="false" aria-controls="dd-panel">Services</button>
         <div class="dd-panel" id="dd-panel">{dd}<a class="all" href="{h}#services">All services</a></div>
       </div>
-      <a href="{h}#about">About</a>
-      <a href="{h}#work">Our work</a>
-      <a href="{h}#area">Service area</a>
-      <a href="{h}#faq">FAQ</a>
+      <a href="about.html"{cur("about")}>About</a>
+      <a href="projects.html"{cur("projects")}>Projects</a>
+      <a href="service-area.html"{cur("service-area")}>Service area</a>
+      <a href="contact.html"{cur("contact")}>Contact</a>
     </nav>
     <div class="header-actions">
       <a class="header-phone" href="tel:+14103571406">{PHONE}</a>
-      <a class="btn btn-amber" href="{h}#quote">Get a free quote</a>
+      <a class="btn btn-amber" href="{quote}">Get a free quote</a>
       <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -112,13 +114,13 @@ def header(current=None, home=False):
     <nav aria-label="Mobile">
       <a href="{h}#services">Services</a>
       <div class="sub">{sub}</div>
-      <a href="{h}#about">About</a>
-      <a href="{h}#work">Our work</a>
-      <a href="{h}#area">Service area</a>
-      <a href="{h}#faq">FAQ</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="service-area.html">Service area</a>
+      <a href="contact.html">Contact</a>
     </nav>
     <div class="contact-row">
-      <a class="btn btn-amber" href="{h}#quote">Get a free quote</a>
+      <a class="btn btn-amber" href="{quote}">Get a free quote</a>
       <a class="btn btn-ghost" href="tel:+14103571406">Call or text {PHONE}</a>
     </div>
   </div>
@@ -136,10 +138,10 @@ def footer(home=False):
       <div class="foot-brand">
         <div class="wm"><img src="assets/img/logo-mark.png" alt="" width="116" height="116"><div><b>AVANT</b><small>TOTAL SOLUTIONS</small></div></div>
         <p>Woman and minority owned contractor based in Annapolis, serving Maryland, Pennsylvania, New Jersey and Delaware.</p>
-        <div class="licenses"><span>MHIC # <span class="pending">pending</span></span><span>PA HIC # <span class="pending">pending</span></span></div>
+        <div class="licenses"><span>MHIC #165241</span><span>PA HIC #PA200542</span></div>
       </div>
       <div><h4>Services</h4><ul>{svc}</ul></div>
-      <div><h4>Company</h4><ul><li><a href="{h}#about">About</a></li><li><a href="{h}#work">Our work</a></li><li><a href="{h}#area">Service area</a></li><li><a href="{h}#faq">FAQ</a></li><li><a href="{h}#top">Privacy policy</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="projects.html">Projects</a></li><li><a href="service-area.html">Service area</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy policy</a></li></ul></div>
       <div><h4>Contact</h4><ul><li><a href="tel:+14103571406">{PHONE}</a></li><li><a href="mailto:hello@avanttotalsolutions.com">hello@avanttotalsolutions.com</a></li><li><a href="https://www.linkedin.com/company/avant-total-solutions/">LinkedIn</a></li><li><a href="https://www.instagram.com/at.solutions__">Instagram</a></li></ul></div>
     </div>
     <div class="foot-legal"><span>© 2026 Avant Total Solutions</span><span>409 Chester Avenue, Annapolis, MD 21403</span></div>
@@ -240,7 +242,7 @@ def cta_block(service, line):
     <div class="wrap">
       <h2>{line}</h2>
       <div class="acts">
-        <a class="btn btn-amber" href="./?service={q}#quote">Get a free quote {ARROW}</a>
+        <a class="btn btn-amber" href="contact.html?service={q}">Get a free quote {ARROW}</a>
         <a class="btn btn-ghost" href="tel:+14103571406">Call or text {PHONE}</a>
       </div>
     </div>
@@ -262,10 +264,10 @@ def page_hero(name, h1, lede, media, service):
       <h1 id="page-title">{h1}</h1>
       <p class="lede">{lede}</p>
       <div class="hero-actions">
-        <a class="btn btn-amber" href="./?service={q}#quote">Get a free quote {ARROW}</a>
+        <a class="btn btn-amber" href="contact.html?service={q}">Get a free quote {ARROW}</a>
         <a class="btn btn-ghost" href="tel:+14103571406">Call or text {PHONE}</a>
       </div>
-      <div class="hero-foot"><span><b>MHIC #</b> <span class="pending">pending</span></span><span><b>PA HIC #</b> <span class="pending">pending</span></span><span>Licensed and insured</span><span>Serving MD, PA, NJ and DE</span></div>
+      <div class="hero-foot"><span><b>MHIC #165241</b></span><span><b>PA HIC #PA200542</b></span><span>Licensed and insured</span><span>Serving MD, PA, NJ and DE</span></div>
     </div>
   </section>"""
 
@@ -526,6 +528,213 @@ PAGES.append(dict(
     faqs=pc_faqs))
 
 
+# ---------- Other pages ----------
+def simple_hero(crumb, h1, lede, media, actions=True):
+    if media.endswith(".mp4"):
+        poster = media.replace(".mp4", ".jpg")
+        m = f'<img class="bgimg" src="{poster}" alt="" aria-hidden="true"><video autoplay muted loop playsinline preload="metadata" poster="{poster}" aria-hidden="true"><source src="{media}" type="video/mp4"></video>'
+    else:
+        m = f'<img class="bgimg" src="{media}" alt="" aria-hidden="true">'
+    acts = f"""<div class="hero-actions"><a class="btn btn-amber" href="contact.html">Get a free quote {ARROW}</a><a class="btn btn-ghost" href="tel:+14103571406">Call or text {PHONE}</a></div>""" if actions else ""
+    return f"""
+  <section class="page-hero dark" id="top" aria-labelledby="page-title">
+    {m}
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="./">Home</a><span aria-hidden="true">/</span><span>{crumb}</span></nav>
+      <h1 id="page-title">{h1}</h1>
+      <p class="lede">{lede}</p>
+      {acts}
+    </div>
+  </section>"""
+
+
+def crumbs_ld(name, slug):
+    return {"@type": "BreadcrumbList", "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": SITE + "/"},
+        {"@type": "ListItem", "position": 2, "name": name, "item": f"{SITE}/{slug}"}]}
+
+
+def home_part(start, end):
+    src = open("src/home.html").read()
+    a = src.index(start); b = src.index(end, a) + len(end)
+    return src[a:b]
+
+
+OTHER = []
+
+# About
+def about_body():
+    lead = home_part('<section class="lead" id="about"', '</section>').replace('id="about"', 'id="lead"').replace('<a class="btn btn-ghost" href="#quote">', '<a class="btn btn-ghost" href="contact.html">')
+    return simple_hero("About", "Built from experience. Driven by purpose.",
+        "Avant Total Solutions is a woman and minority owned contractor based in Annapolis, running masonry, concrete, hoist, procurement and cleaning work across four states.",
+        "assets/video/masonry.jpg") + split_block("Why we started Avant", "The team we wished we'd had",
+        ["We've been on the other side of the contract: waiting on callbacks, watching deadlines slip, hiring someone who said the right things and didn't follow through.",
+         "Avant exists to be the crew we always wanted on our own jobs. That means showing up when we said we would, answering the phone, pricing the work line by line and leaving the site clean."],
+        "assets/photo/veneer-closeup.webp", "Mason laying dark brick veneer") + lead + f"""
+  <section class="sp" aria-labelledby="promise-title" style="padding-top: 0">
+    <div class="wrap">
+      <div class="sp-head"><span class="label">What you can expect</span><h2 id="promise-title">Four things on every job</h2></div>
+      <ul class="signs four">
+        <li><b>We show up prepared</b><span>Right crew, right materials, on the day we committed to.</span></li>
+        <li><b>We keep the job moving</b><span>One point of contact who knows where every piece stands.</span></li>
+        <li><b>We communicate clearly</b><span>Straight answers, updates before you have to ask.</span></li>
+        <li><b>We protect your site</b><span>OSHA-trained crews, site rules followed, clean at the end of the day.</span></li>
+      </ul>
+    </div>
+  </section>
+  <section class="sp" aria-labelledby="who-title">
+    <div class="wrap split">
+      <div class="copy">
+        <span class="label">Who we work with</span>
+        <h2 id="who-title">From a single stoop to a multi-story build</h2>
+        <p class="big">Homeowners, landlords, property managers, general contractors, developers, designers and public agencies all hire us for the same reason: the work gets done the way the quote said it would.</p>
+      </div>
+      <div class="cred-list">
+        <div><b>Licenses</b><span>Maryland Home Improvement Commission #165241</span><span>Pennsylvania Home Improvement Contractor #PA200542</span><span>Licensed and insured</span></div>
+        <div><b>Trades</b><span>IUOE Local 542 trained hoist operators</span><span>BAC Local 1 trained masonry</span><span>OSHA trained crews</span></div>
+        <div><b>Ownership</b><span>Woman and minority owned</span><span>Based in Annapolis, Maryland</span></div>
+      </div>
+    </div>
+  </section>
+  <section class="cta-band dark" aria-label="Work with us">
+    <div class="wrap">
+      <h2>Take pride in your trade? We're hiring.</h2>
+      <div class="acts"><a class="btn btn-amber" href="mailto:hello@avanttotalsolutions.com?subject=Joining%20the%20team">Email us about joining {ARROW}</a><a class="btn btn-ghost" href="contact.html">Request a quote</a></div>
+    </div>
+  </section>"""
+OTHER.append(dict(slug="about", name="About", title="About Avant Total Solutions | Annapolis Contractor",
+    desc="Woman and minority owned contractor based in Annapolis. Licensed MHIC #165241 and PA HIC #PA200542, with Local 542 trained hoist operators and Local 1 trained masonry.",
+    image="assets/photo/crew-two.webp", body=about_body))
+
+# Projects
+PROJ = [
+    ("pair", "wall", "masonry", "Retaining wall refaced in red brick", "Masonry"),
+    ("pair", "window", "masonry", "Window opening bricked in to match", "Masonry"),
+    ("pair", "stoop", "concrete", "Stoop rebuilt with a herringbone inlay", "Concrete restoration"),
+    ("img", "assets/photo/herringbone-walk.webp", "masonry", "Herringbone brick walkway", "Masonry"),
+    ("img", "assets/photo/veneer-closeup.webp", "masonry", "Brick veneer over CMU", "Masonry"),
+    ("img", "assets/photo/brick-veneer-1.webp", "masonry", "Veneer wall going up", "Masonry"),
+    ("img", "assets/photo/barn-floor-clean.webp", "concrete", "Barn aisle concrete", "Concrete restoration"),
+    ("img", "assets/video/hoist.jpg", "hoist", "Night shift on the hoist deck", "Hoist manpower"),
+    ("img", "assets/photo/crew-handshake.webp", "hoist", "Jimmy Harris with the site team", "Hoist manpower"),
+    ("img", "assets/video/delivery.jpg", "procurement", "Supersack delivery by boom truck", "Procurement"),
+    ("img", "assets/video/hero.jpg", "hoist", "High-rise site with tower cranes", "Hoist manpower"),
+    ("img", "assets/photo/crane-operator.webp", "hoist", "Lifts on schedule", "Hoist manpower"),
+]
+def projects_body():
+    chips = "".join(f'<button type="button" data-f="{k}" aria-pressed="{"true" if k == "all" else "false"}">{n}</button>' for k, n in
+        [("all", "All work"), ("masonry", "Masonry"), ("concrete", "Concrete"), ("hoist", "Hoist"), ("procurement", "Procurement")])
+    cards = ""
+    for kind, src, cat, cap, tag in PROJ:
+        if kind == "pair":
+            pr = PAIRS[src]
+            cards += f'<figure class="pcard" data-cat="{cat}"><div class="mini-compare" style="--pos: 50%"><img src="{pr["b"]}" alt="Before: {pr["cap"]}" loading="lazy"><div class="after-wrap"><img src="{pr["a"]}" alt="After: {pr["cap"]}" loading="lazy"></div><input type="range" min="0" max="100" value="50" aria-label="Compare before and after: {cap}"><span class="handle" aria-hidden="true"><span class="grip"><svg><use href="#left"/></svg><svg><use href="#arrow"/></svg></span></span><span class="tag-b">Before</span><span class="tag-a">After</span></div><figcaption>{cap}<span>{tag}</span></figcaption></figure>'
+        else:
+            cards += f'<figure class="pcard" data-cat="{cat}"><img src="{src}" alt="{cap}" loading="lazy"><figcaption>{cap}<span>{tag}</span></figcaption></figure>'
+    return simple_hero("Projects", "Our work",
+        "Before-and-afters and job site photos from masonry, concrete, hoist and procurement work across Maryland, Pennsylvania, New Jersey and Delaware.",
+        "assets/photo/wall-after.webp") + f"""
+  <section class="sp" aria-labelledby="proj-title">
+    <div class="wrap">
+      <div class="proj-top"><h2 id="proj-title" class="sr-only">Project gallery</h2><div class="chips" id="proj-filters" role="group" aria-label="Filter projects">{chips}</div><p class="proj-count" id="proj-count" aria-live="polite">{len(PROJ)} projects</p></div>
+      <div class="pgrid" id="pgrid">{cards}</div>
+    </div>
+  </section>""" + cta_block("Masonry", "Have a project like one of these?")
+OTHER.append(dict(slug="projects", name="Projects", title="Projects and Before-and-Afters | Avant Total Solutions",
+    desc="Before-and-after masonry and concrete work, hoist placements and material deliveries from Avant Total Solutions across MD, PA, NJ and DE.",
+    image="assets/photo/wall-after.webp", body=projects_body))
+
+# Service area
+REGIONS = [
+    ("Maryland", "Home base", "Our office is in Annapolis, and Anne Arundel County is home turf.",
+     ["Anne Arundel County", "Baltimore City", "Baltimore County", "Howard County", "Prince George's County"], ["Annapolis", "Baltimore", "Columbia", "Glen Burnie", "Bowie"]),
+    ("Pennsylvania", "Greater Philadelphia", "Philadelphia and the surrounding counties, from rowhome repairs to high-rise hoist work.",
+     ["Philadelphia County", "Montgomery County", "Bucks County", "Chester County", "Delaware County"], ["Philadelphia", "Norristown", "Doylestown", "West Chester", "Media"]),
+    ("New Jersey", "South and Central Jersey", "Across the river from Philadelphia and up toward Trenton.",
+     ["Camden County", "Burlington County", "Gloucester County", "Mercer County"], ["Cherry Hill", "Mount Laurel", "Cinnaminson", "Trenton"]),
+    ("Delaware", "Statewide", "The whole state, with most of our work around Wilmington.",
+     ["New Castle County", "Kent County", "Sussex County"], ["Wilmington", "Newark", "Dover"]),
+]
+def area_body():
+    regs = "".join(f"""<article class="region"><span class="label">{tag}</span><h3>{st}</h3><p>{blurb}</p><div class="reg-lists"><div><b>Counties</b><ul>{"".join(f"<li>{c}</li>" for c in counties)}</ul></div><div><b>Cities and towns</b><ul>{"".join(f"<li>{t}</li>" for t in towns)}</ul></div></div></article>""" for st, tag, blurb, counties, towns in REGIONS)
+    svc = "".join(f'<a href="{slug}.html">{name}</a>' for slug, name, _ in SERVICES)
+    return simple_hero("Service area", "Four states, based in Annapolis",
+        "Every service we offer is available across Maryland, Pennsylvania, New Jersey and Delaware. Outside these counties? Call anyway. We travel for the right project.",
+        "assets/video/hero.jpg") + f"""
+  <section class="sp" aria-labelledby="regions-title">
+    <div class="wrap">
+      <div class="sp-head"><span class="label">Where we work</span><h2 id="regions-title">Counties and towns we serve</h2></div>
+      <div class="regions">{regs}</div>
+    </div>
+  </section>
+  <section class="sp mist" aria-labelledby="svc-title">
+    <div class="wrap">
+      <div class="sp-head"><span class="label">Available everywhere we work</span><h2 id="svc-title">All five services, all four states</h2></div>
+      <div class="svc-links">{svc}</div>
+    </div>
+  </section>""" + cta_block("Not sure yet", "Not sure if we cover your area?")
+OTHER.append(dict(slug="service-area", name="Service area", title="Service Area: Maryland, Pennsylvania, New Jersey and Delaware | Avant Total Solutions",
+    desc="Avant Total Solutions serves Anne Arundel, Baltimore, Howard and Prince George's in Maryland, Greater Philadelphia, South and Central New Jersey, and all of Delaware.",
+    image="assets/video/hero.jpg", body=area_body))
+
+# Contact
+def contact_body():
+    form = home_part('<form class="qform"', '</form>')
+    info = home_part('<div class="contact-list">', '\n        </div>')
+    return f"""
+  <section class="quote dark contact-page" id="quote" aria-labelledby="quote-title">
+    <div class="wrap">
+      <div>
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="./">Home</a><span aria-hidden="true">/</span><span>Contact</span></nav>
+        <div class="head" style="margin-top: 1.4rem">
+          <h1 id="quote-title">Tell us about the job</h1>
+          <p class="lede">Three short steps for a free, itemized quote. We reply within two business days. For anything urgent, call or text.</p>
+        </div>
+        {info}
+        <div class="map-link"><a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=409+Chester+Avenue+Annapolis+MD+21403">Open the office in Google Maps</a></div>
+      </div>
+      {form}
+    </div>
+  </section>"""
+OTHER.append(dict(slug="contact", name="Contact", title="Contact and Free Quote | Avant Total Solutions",
+    desc="Request a free, itemized quote from Avant Total Solutions. Call or text 410-357-1406, email hello@avanttotalsolutions.com, or send the three-step quote form.",
+    image="assets/video/hero.jpg", body=contact_body))
+
+# Privacy
+def privacy_body():
+    return f"""
+  <section class="sp prose-page" aria-labelledby="page-title">
+    <div class="wrap prose">
+      <nav class="crumbs crumbs-light" aria-label="Breadcrumb"><a href="./">Home</a><span aria-hidden="true">/</span><span>Privacy policy</span></nav>
+      <h1 id="page-title">Privacy policy</h1>
+      <p class="updated">Effective October 20, 2026</p>
+      <p>This policy explains what information Avant Total Solutions collects through avanttotalsolutions.com and how we use it.</p>
+      <h2>What we collect</h2>
+      <p>When you send the quote form, we receive what you enter: the services you picked, your job ZIP code, your timeline, your description of the work, and your name, phone number and email. When you call, text or email us, we receive what you send.</p>
+      <p>Like most websites, our hosting provider records basic technical information when you visit, such as your IP address, browser type and the pages you request, to deliver and secure the site.</p>
+      <h2>How we use it</h2>
+      <p>We use your information to reply to you, prepare quotes, schedule and perform work, and keep records of jobs we do. We do not sell your information, and we do not use it for advertising.</p>
+      <h2>Who we share it with</h2>
+      <p>We share information only with the services that run our business: our website host, our email provider, and the tools we use to receive and track quote requests. They process it on our behalf. We may also share information when the law requires it.</p>
+      <h2>Cookies and third parties</h2>
+      <p>This site does not use advertising or tracking cookies. Our fonts load from Google Fonts, so Google receives your IP address when the page loads. Links to LinkedIn, Instagram and Google Maps take you to those sites, which have their own privacy policies.</p>
+      <h2>Photos of our work</h2>
+      <p>Project photos on this site show our own work. We remove location data from every photo before we publish it. If you see a photo of your property and want it removed, email us and we'll take it down.</p>
+      <h2>Keeping and deleting your information</h2>
+      <p>We keep quote requests and job records as long as we need them for the work, our warranty and our legal and tax obligations. To see, correct or delete the information we hold about you, email hello@avanttotalsolutions.com.</p>
+      <h2>Children</h2>
+      <p>This site is meant for adults arranging construction work. We do not knowingly collect information from children.</p>
+      <h2>Changes</h2>
+      <p>If we change this policy, we'll update the date at the top of this page.</p>
+      <h2>Contact</h2>
+      <p>Avant Total Solutions, 409 Chester Avenue, Annapolis, MD 21403. Email hello@avanttotalsolutions.com or call {PHONE}.</p>
+    </div>
+  </section>"""
+OTHER.append(dict(slug="privacy", name="Privacy policy", title="Privacy Policy | Avant Total Solutions",
+    desc="How Avant Total Solutions collects, uses and protects information sent through avanttotalsolutions.com.",
+    image="assets/video/hero.jpg", body=privacy_body))
+
+
 def build():
     # Home
     main = open("src/home.html").read()
@@ -538,6 +747,11 @@ def build():
     for p in PAGES:
         out = head(p["title"], p["desc"], p["slug"], p["image"], jsonld_service(p["slug"], p["name"], p["desc"], p["faqs"])) \
             + header(current=p["slug"]) + '\n<main id="main">' + p["body"]() + "\n</main>\n" + footer()
+        open(p["slug"] + ".html", "w").write(out)
+        urls.append(f"{SITE}/{p['slug']}")
+    for p in OTHER:
+        ld = [BUSINESS, crumbs_ld(p["name"], p["slug"])]
+        out = head(p["title"], p["desc"], p["slug"], p["image"], ld) + header(current=p["slug"]) + '\n<main id="main">' + p["body"]() + "\n</main>\n" + footer()
         open(p["slug"] + ".html", "w").write(out)
         urls.append(f"{SITE}/{p['slug']}")
     sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(f"  <url><loc>{u}</loc></url>\n" for u in urls) + "</urlset>\n"

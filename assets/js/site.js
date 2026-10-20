@@ -145,6 +145,24 @@
   }
 
   if ($('#strip')) {
+  /* Project filters and small before/after cards */
+  var chips = $$('#proj-filters button');
+  if (chips.length) {
+    var cards = $$('.pcard'), count = $('#proj-count');
+    chips.forEach(function (c) {
+      c.addEventListener('click', function () {
+        chips.forEach(function (o) { o.setAttribute('aria-pressed', String(o === c)); });
+        var f = c.dataset.f, n = 0;
+        cards.forEach(function (card) { var on = f === 'all' || card.dataset.cat === f; card.hidden = !on; if (on) n++; });
+        count.textContent = n + (n === 1 ? ' project' : ' projects');
+      });
+    });
+  }
+  $$('.mini-compare').forEach(function (mc) {
+    var r = $('input', mc);
+    r.addEventListener('input', function () { mc.style.setProperty('--pos', r.value + '%'); });
+  });
+
   /* Photo strip */
   var strip = $('#strip');
   var step = function (dir) { var f = $('figure', strip); strip.scrollBy({ left: dir * (f.offsetWidth + 14), behavior: reduce ? 'auto' : 'smooth' }); };
