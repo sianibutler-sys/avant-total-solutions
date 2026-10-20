@@ -1,0 +1,307 @@
+<main id="main">
+  <section class="hero dark" id="top" aria-labelledby="hero-title">
+    <img class="poster" src="assets/video/hero.jpg" alt="" width="1600" height="900">
+    <video id="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/video/hero.jpg" aria-hidden="true">
+      <source src="assets/video/hero.mp4" type="video/mp4">
+    </video>
+    <div class="wrap">
+      <h1 id="hero-title"><span class="ln"><span>Solid Work.</span></span><span class="ln"><span>No Surprises.</span></span><span class="ln"><span>Fair Price.</span></span></h1>
+      <p class="lede">Masonry, concrete restoration, union hoist operators, procurement and post-construction cleaning across Maryland, Pennsylvania, New Jersey and Delaware.</p>
+      <div class="hero-actions">
+        <a class="btn btn-amber" href="#quote">Get a free quote <svg class="arrow"><use href="#arrow"/></svg></a>
+        <a class="btn btn-ghost" href="#services">See our services</a>
+      </div>
+      <div class="hero-foot">
+        <span><b>MHIC #</b> <span class="pending">pending</span></span>
+        <span><b>PA HIC #</b> <span class="pending">pending</span></span>
+        <span>Licensed and insured</span>
+        <span>Woman and minority owned</span>
+      </div>
+    </div>
+    <button class="video-toggle" id="video-toggle" type="button" aria-label="Pause background video"><svg><use href="#pause"/></svg></button>
+  </section>
+
+  <section class="statement" aria-label="About Avant Total Solutions">
+    <div class="wrap">
+      <p class="big">One crew on your job from the first delivery to the final clean, run by people who have worked every one of those trades.</p>
+      <div class="facts">
+        <div class="fact"><b>25+</b><span>years on job sites, from high-rise hoists to rowhome stoops</span></div>
+        <div class="fact"><b>5</b><span>trades under one contract and one point of contact</span></div>
+        <div class="fact"><b>4</b><span>states, with our office in Annapolis</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services dark" id="services" aria-labelledby="services-title">
+    <div class="wrap">
+      <div class="head">
+        <div class="head-text">
+          <span class="label">Services</span>
+          <h2 id="services-title">In the order your job runs</h2>
+        </div>
+        <div class="capsule-track" aria-hidden="true" id="capsules"><span class="on"></span><span></span><span></span><span></span><span></span></div>
+      </div>
+
+      <div class="svc" id="svc">
+        <article class="svc-item" data-open="true" data-i="0">
+          <div class="bg"><video muted loop playsinline preload="none" poster="assets/video/delivery.jpg" aria-hidden="true"><source src="assets/video/delivery.mp4" type="video/mp4"></video></div>
+          <button class="svc-trigger" type="button" aria-expanded="true" aria-controls="svc-0"><span class="svc-closed"><span class="t">Procurement</span></span></button>
+          <div class="svc-open" id="svc-0">
+            <span class="n">Procurement</span>
+            <h3>We find it and get it to your site</h3>
+            <p>Send the spec, the budget and the date. We source materials and rentals through suppliers we know, then schedule delivery around your crew.</p>
+            <ul><li>Brick, block, stone and CMU</li><li>Lumber, drywall and concrete products</li><li>Equipment and lift rentals</li><li>Fixtures, finishes and furnishings</li></ul>
+            <div class="acts"><a class="btn btn-amber" href="#quote" data-pick="Procurement">Get a procurement quote <svg class="arrow"><use href="#arrow"/></svg></a><a class="svc-more" href="procurement.html">Procurement details</a></div>
+          </div>
+        </article>
+        <article class="svc-item" data-open="false" data-i="1">
+          <div class="bg"><video muted loop playsinline preload="none" poster="assets/video/hoist.jpg" aria-hidden="true"><source src="assets/video/hoist.mp4" type="video/mp4"></video></div>
+          <button class="svc-trigger" type="button" aria-expanded="false" aria-controls="svc-1"><span class="svc-closed"><span class="t">Hoist manpower</span></span></button>
+          <div class="svc-open" id="svc-1">
+            <span class="n">Hoist manpower</span>
+            <h3>Local 542 operators for your hoist</h3>
+            <p>You supply the hoist and we supply the operator. Jimmy Harris trains every operator we place, so deliveries, material moves and personnel lifts keep pace with your schedule.</p>
+            <ul><li>Outside construction hoists</li><li>Inside personnel and material elevators</li><li>High-rise and multi-family sites</li><li>Placement in a few business days</li></ul>
+            <div class="acts"><a class="btn btn-amber" href="#quote" data-pick="Hoist manpower">Request an operator <svg class="arrow"><use href="#arrow"/></svg></a><a class="svc-more" href="hoist-manpower.html">Hoist manpower details</a></div>
+          </div>
+        </article>
+        <article class="svc-item" data-open="false" data-i="2">
+          <div class="bg"><video muted loop playsinline preload="none" poster="assets/video/masonry.jpg" aria-hidden="true"><source src="assets/video/masonry.mp4" type="video/mp4"></video></div>
+          <button class="svc-trigger" type="button" aria-expanded="false" aria-controls="svc-2"><span class="svc-closed"><span class="t">Masonry</span></span></button>
+          <div class="svc-open" id="svc-2">
+            <span class="n">Masonry</span>
+            <h3>Brick and stone, set by a Local 1 crew</h3>
+            <p>New work and repair on rowhomes, houses and commercial buildings. We match existing brick and mortar so a repair blends into the wall around it.</p>
+            <ul><li>Tuckpointing and repointing</li><li>Facade and chimney restoration</li><li>Brick veneer and CMU walls</li><li>Patios, walkways and steps</li></ul>
+            <div class="acts"><a class="btn btn-amber" href="#quote" data-pick="Masonry">Get a masonry quote <svg class="arrow"><use href="#arrow"/></svg></a><a class="svc-more" href="masonry.html">Masonry details</a></div>
+          </div>
+        </article>
+        <article class="svc-item" data-open="false" data-i="3">
+          <div class="bg"><img src="assets/photo/barn-floor-clean.webp" alt="" loading="lazy"></div>
+          <button class="svc-trigger" type="button" aria-expanded="false" aria-controls="svc-3"><span class="svc-closed"><span class="t">Concrete restoration</span></span></button>
+          <div class="svc-open" id="svc-3">
+            <span class="n">Concrete restoration</span>
+            <h3>Repair what's cracked. Pour what's new.</h3>
+            <p>Spalling, cracks and settled slabs repaired to last, and new flatwork poured and finished to match the block.</p>
+            <ul><li>Spall and crack repair</li><li>Step and stoop rebuilds</li><li>Sidewalks, curb cuts and ADA ramps</li><li>Slabs, pads and stamped finishes</li></ul>
+            <div class="acts"><a class="btn btn-amber" href="#quote" data-pick="Concrete restoration">Get a concrete quote <svg class="arrow"><use href="#arrow"/></svg></a><a class="svc-more" href="concrete-restoration.html">Concrete restoration details</a></div>
+          </div>
+        </article>
+        <article class="svc-item" data-open="false" data-i="4">
+          <div class="bg"><img src="assets/photo/finished-interior.webp" alt="" loading="lazy"></div>
+          <button class="svc-trigger" type="button" aria-expanded="false" aria-controls="svc-4"><span class="svc-closed"><span class="t">Post-construction cleaning</span></span></button>
+          <div class="svc-open" id="svc-4">
+            <span class="n">Post-construction cleaning</span>
+            <h3>Hand over the keys clean</h3>
+            <p>The three standard phases, scheduled around your punch list. If your job needs something different, ask for a custom scope.</p>
+            <ul><li>Rough clean during construction</li><li>Final clean before turnover</li><li>Touch-up clean before move-in</li><li>Custom scope on request</li></ul>
+            <div class="acts"><a class="btn btn-amber" href="#quote" data-pick="Post-construction cleaning">Get a cleaning quote <svg class="arrow"><use href="#arrow"/></svg></a><a class="svc-more" href="post-construction-cleaning.html">Post-construction cleaning details</a></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="ba" id="work" aria-labelledby="work-title">
+    <div class="wrap">
+      <div class="ba-head">
+        <div class="head-text">
+          <span class="label">Before and after</span>
+          <h2 id="work-title">Drag to see the difference</h2>
+        </div>
+        <div class="ba-tabs" role="tablist" aria-label="Choose a project" id="ba-tabs">
+          <button role="tab" aria-selected="true" data-b="assets/photo/wall-before.webp" data-a="assets/photo/wall-after.webp" data-cap="Failing block retaining wall refaced in red brick, with a soldier course cap and end piers" data-tags="Masonry|Retaining wall">Retaining wall</button>
+          <button role="tab" aria-selected="false" tabindex="-1" data-b="assets/photo/window-before.webp" data-a="assets/photo/window-after.webp" data-cap="Window opening infilled with brick and mortar matched to the existing wall" data-tags="Masonry|Brick matching">Window infill</button>
+          <button role="tab" aria-selected="false" tabindex="-1" data-b="assets/photo/stoop-before.webp" data-a="assets/photo/stoop-after.webp" data-cap="Stoop rebuilt with a herringbone brick inlay inside a concrete border" data-tags="Concrete restoration|Masonry">Herringbone stoop</button>
+        </div>
+      </div>
+      <div class="compare" id="compare" style="--pos: 50%">
+        <img class="before" id="ba-before" src="assets/photo/wall-before.webp" alt="Before: cracked concrete block retaining wall with new brick starting at the base">
+        <div class="after-wrap"><img id="ba-after" src="assets/photo/wall-after.webp" alt="After: finished red brick retaining wall with end piers"></div>
+        <span class="tag-b">Before</span><span class="tag-a">After</span>
+        <input type="range" min="0" max="100" value="50" id="compare-range" aria-label="Slide to compare before and after">
+        <span class="handle" aria-hidden="true"><span class="grip"><svg><use href="#left"/></svg><svg><use href="#arrow"/></svg></span></span>
+      </div>
+      <div class="ba-cap"><p id="ba-cap">Failing block retaining wall refaced in red brick, with a soldier course cap and end piers</p><div class="ba-tags" id="ba-tags"><span>Masonry</span><span>Retaining wall</span></div></div>
+    </div>
+  </section>
+
+  <section class="lead" id="about" aria-labelledby="about-title">
+    <div class="wrap">
+      <figure>
+        <img src="assets/photo/crew-two.webp" alt="Jimmy Harris on a job site with a site supervisor" width="580" height="453" loading="lazy">
+      </figure>
+      <div class="lead-copy">
+        <span class="label">Lead operator</span>
+        <h2 id="about-title">The person on your site</h2>
+        <p>Jimmy Harris has run hoists as a Local 542 operator and laid brick with BAC Local 1. He trains every operator we place and walks every masonry job before it's quoted.</p>
+        <p>That pairing is why a hoist call and a facade repair get the same attention. He knows what rides on every load because he's set the brick at the top of it.</p>
+        <div class="unions">
+          <div class="union"><b><span class="pending">00</span> years</b><span>IUOE Local 542 hoist operator</span></div>
+          <div class="union"><b><span class="pending">00</span> years</b><span>BAC Local 1 bricklayer</span></div>
+        </div>
+        <div><a class="btn btn-ghost" href="#quote">Talk to Jimmy about your job</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="proof dark" aria-labelledby="proof-title">
+    <img class="poster" src="assets/video/masonry.jpg" alt="" loading="lazy">
+    <video id="proof-video" muted loop playsinline preload="none" poster="assets/video/masonry.jpg" aria-hidden="true"><source src="assets/video/masonry.mp4" type="video/mp4"></video>
+    <div class="wrap">
+      <span class="label" id="proof-title">From our clients</span>
+      <div id="proof-stage" aria-live="polite">
+        <blockquote>
+          <p>Managing a multi-family building means any repair work has to be done efficiently and with minimal disruption to tenants. Jimmy handled our brick facade restoration perfectly. The building looks fantastic, the crew was respectful to residents, and communication was excellent the whole way through.</p>
+          <cite><b>Landlord</b>, Southwest Philadelphia</cite>
+        </blockquote>
+      </div>
+      <div class="proof-nav" role="tablist" aria-label="Choose a client review" id="proof-nav">
+        <button role="tab" aria-selected="true" data-q="Managing a multi-family building means any repair work has to be done efficiently and with minimal disruption to tenants. Jimmy handled our brick facade restoration perfectly. The building looks fantastic, the crew was respectful to residents, and communication was excellent the whole way through." data-who="Landlord" data-where="Southwest Philadelphia">Facade restoration</button>
+        <button role="tab" aria-selected="false" tabindex="-1" data-q="We've used Avant for several masonry projects, from steps going down to our pier to driveway work, and every job has been top-notch. They listen to what you need, give fair prices, and deliver results that last." data-who="Homeowner" data-where="Annapolis, MD">Pier steps and driveway</button>
+        <button role="tab" aria-selected="false" tabindex="-1" data-q="Our sidewalk was cracked and uneven, making it a hazard for anyone walking by. Avant repaired it quickly and did a beautiful brushed finish that blends perfectly with the rest of the block. They were professional, friendly, and kept us updated from start to finish." data-who="Jack H." data-where="Philadelphia, PA">Sidewalk repair</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="onsite" id="onsite" aria-labelledby="onsite-title" style="padding-top: clamp(4.5rem, 9vw, 7.5rem)">
+    <div class="wrap head">
+      <div style="display:grid; gap:1rem">
+        <span class="label">On the job</span>
+        <h2 id="onsite-title">Work in progress</h2>
+      </div>
+      <div class="strip-ctrl">
+        <button type="button" id="strip-prev" aria-label="Previous photos"><svg><use href="#left"/></svg></button>
+        <button type="button" id="strip-next" aria-label="Next photos"><svg><use href="#arrow"/></svg></button>
+      </div>
+    </div>
+    <div class="strip" id="strip" tabindex="0" aria-label="Job site photos">
+      <figure><img src="assets/photo/veneer-closeup.webp" alt="Mason laying dark brick veneer against new block" loading="lazy" width="1600" height="1067"><figcaption>Brick veneer over CMU<span>Masonry</span></figcaption></figure>
+      <figure><img src="assets/photo/herringbone-walk.webp" alt="Herringbone brick walkway set in a timber border" loading="lazy" width="1200" height="1600"><figcaption>Herringbone walkway<span>Masonry</span></figcaption></figure>
+      <figure><img src="assets/photo/crew-handshake.webp" alt="Jimmy Harris shaking hands with a site supervisor" loading="lazy" width="375" height="442"><figcaption>Jimmy Harris with the site team<span>Hoist manpower</span></figcaption></figure>
+      <figure><img src="assets/photo/brick-veneer-1.webp" alt="Dark brick veneer going up on a building" loading="lazy" width="648" height="664"><figcaption>Veneer wall going up<span>Masonry</span></figcaption></figure>
+      <figure><img src="assets/photo/barn-floor-clean.webp" alt="Finished concrete floor in a barn aisle" loading="lazy" width="1200" height="1600"><figcaption>Barn aisle concrete<span>Concrete restoration</span></figcaption></figure>
+      <figure><img src="assets/photo/crane-operator.webp" alt="Operator in the cab of a red crane" loading="lazy" width="487" height="614"><figcaption>Lifts on schedule<span>Hoist manpower</span></figcaption></figure>
+    </div>
+  </section>
+
+  <section class="process" aria-labelledby="process-title">
+    <div class="wrap">
+      <div class="head">
+        <span class="label">How a job runs</span>
+        <h2 id="process-title">You'll see the price and the plan before we start</h2>
+      </div>
+      <ol class="steps">
+        <li><h3>Reach out</h3><p>Call, text, email or send the form. We reply within two business days.</p></li>
+        <li><h3>Site visit</h3><p>We walk the job with you, take measurements and answer questions on the spot.</p></li>
+        <li><h3>Itemized quote</h3><p>Scope, schedule and price, line by line. Free, with no obligation.</p></li>
+        <li><h3>Work and walkthrough</h3><p>One point of contact through the job, then a final walkthrough together.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="area dark" id="area" aria-labelledby="area-title">
+    <div class="wrap">
+      <div class="head">
+        <span class="label">Service area</span>
+        <h2 id="area-title">Four states, based in Annapolis</h2>
+        <p class="lede">Outside these counties? Call anyway. We travel for the right project.</p>
+      </div>
+      <div class="states" id="states">
+        <button type="button" aria-expanded="true"><span class="ab">MD</span><span class="nm">Maryland</span><span class="pl" aria-hidden="true"></span><span class="ct">Anne Arundel County, Baltimore City, Baltimore County, Howard County and Prince George's County.</span></button>
+        <button type="button" aria-expanded="false"><span class="ab">PA</span><span class="nm">Pennsylvania</span><span class="pl" aria-hidden="true"></span><span class="ct">Philadelphia plus Montgomery, Bucks, Chester and Delaware Counties.</span></button>
+        <button type="button" aria-expanded="false"><span class="ab">NJ</span><span class="nm">New Jersey</span><span class="pl" aria-hidden="true"></span><span class="ct">Camden, Burlington, Gloucester and Mercer Counties, including Cherry Hill, Mount Laurel and Cinnaminson.</span></button>
+        <button type="button" aria-expanded="false"><span class="ab">DE</span><span class="nm">Delaware</span><span class="pl" aria-hidden="true"></span><span class="ct">Statewide, with most of our work around Wilmington.</span></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-sec" id="faq" aria-labelledby="faq-title">
+    <div class="wrap">
+      <div class="head">
+        <span class="label">Questions</span>
+        <h2 id="faq-title">Before you call</h2>
+        <p class="lede">If your question isn't here, call or text and you'll get a straight answer.</p>
+        <div><a class="btn btn-ghost" href="tel:+14103571406">Call or text 410-357-1406</a></div>
+      </div>
+      <div class="faq">
+        <details><summary>Are you licensed and insured?<span class="pl" aria-hidden="true"></span></summary><p class="ans">Yes. We hold a Maryland Home Improvement Commission license (MHIC # <span class="pending">pending</span>) and Pennsylvania Home Improvement Contractor registration (PA HIC # <span class="pending">pending</span>), and we carry full insurance. Every operator and mason is trained to OSHA standards.</p></details>
+        <details><summary>Is the quote free?<span class="pl" aria-hidden="true"></span></summary><p class="ans">Yes. We visit the site, take measurements and send an itemized estimate with no obligation.</p></details>
+        <details><summary>Do you supply the hoist?<span class="pl" aria-hidden="true"></span></summary><p class="ans">No. We supply trained operators for your hoist, inside or outside. If you need help finding equipment, our procurement team can source it.</p></details>
+        <details><summary>Can you match my existing brick or stone?<span class="pl" aria-hidden="true"></span></summary><p class="ans">Usually, yes. Our suppliers carry hard-to-find brick and stone, including matches for older rowhomes and historic buildings.</p></details>
+        <details><summary>Which cleaning phases do you offer?<span class="pl" aria-hidden="true"></span></summary><p class="ans">Rough clean during construction, final clean before turnover and touch-up clean before move-in or inspection. Ask for a custom scope if your job needs something else.</p></details>
+        <details><summary>Do you work with homeowners or only contractors?<span class="pl" aria-hidden="true"></span></summary><p class="ans">Both. We work with homeowners, landlords, property managers, general contractors and developers, on jobs from a single stoop to a multi-story build.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="quote dark" id="quote" aria-labelledby="quote-title">
+    <div class="wrap">
+      <div>
+        <div class="head">
+          <span class="label">Free quote</span>
+          <h2 id="quote-title">Tell us about the job</h2>
+          <p class="lede">Three short steps. We reply within two business days.</p>
+        </div>
+        <div class="contact-list">
+          <div><span>Call or text</span><a href="tel:+14103571406">410-357-1406</a></div>
+          <div><span>Email</span><a href="mailto:hello@avanttotalsolutions.com">hello@avanttotalsolutions.com</a></div>
+          <div><span>Office</span><strong>409 Chester Avenue, Annapolis, MD 21403</strong></div>
+          <div><span>Hours</span><strong>Mon–Fri 7am–4pm, Sat 8am–2pm</strong></div>
+        </div>
+      </div>
+
+      <form class="qform" id="qform" novalidate data-endpoint="">
+        <div class="progress" aria-hidden="true"><span class="now"></span><span></span><span></span></div>
+        <div class="step-title"><h3 id="step-heading">What do you need?</h3><span id="step-count">Step 1 of 3</span></div>
+
+        <fieldset class="fs" data-step="0">
+          <legend class="sr-only">Services</legend>
+          <div class="picks">
+            <label><input type="checkbox" name="service" value="Masonry" id="s-masonry"><span>Masonry</span></label>
+            <label><input type="checkbox" name="service" value="Concrete restoration" id="s-concrete"><span>Concrete restoration</span></label>
+            <label><input type="checkbox" name="service" value="Hoist manpower" id="s-hoist"><span>Hoist manpower</span></label>
+            <label><input type="checkbox" name="service" value="Procurement" id="s-proc"><span>Procurement</span></label>
+            <label><input type="checkbox" name="service" value="Post-construction cleaning" id="s-clean"><span>Post-construction cleaning</span></label>
+            <label><input type="checkbox" name="service" value="Not sure yet" id="s-unsure"><span>Not sure yet</span></label>
+          </div>
+          <p class="err" id="err-0" hidden>Pick at least one so we send the right person.</p>
+        </fieldset>
+
+        <fieldset class="fs" data-step="1" hidden>
+          <legend class="sr-only">About the job</legend>
+          <div class="row2">
+            <div class="field"><label for="q-zip">Job ZIP code</label><input id="q-zip" name="zip" inputmode="numeric" autocomplete="postal-code" maxlength="10"></div>
+            <div class="field"><label for="q-when">When do you need it?</label>
+              <select id="q-when" name="timeline"><option value="">Choose one</option><option>As soon as possible</option><option>Within a month</option><option>In 1–3 months</option><option>Just pricing it out</option></select></div>
+          </div>
+          <div class="field"><label for="q-msg">Describe the work</label><textarea id="q-msg" name="message" placeholder="What needs doing, rough size, anything we should know about the site"></textarea></div>
+          <p class="err" id="err-1" hidden>Add a ZIP code or a short description so we can scope it.</p>
+        </fieldset>
+
+        <fieldset class="fs" data-step="2" hidden>
+          <legend class="sr-only">Contact details</legend>
+          <div class="field"><label for="q-name">Name</label><input id="q-name" name="name" autocomplete="name"></div>
+          <div class="row2">
+            <div class="field"><label for="q-phone">Phone</label><input id="q-phone" name="phone" type="tel" autocomplete="tel"></div>
+            <div class="field"><label for="q-email">Email</label><input id="q-email" name="email" type="email" autocomplete="email"></div>
+          </div>
+          <p class="fine">We use this only to reply about your job.</p>
+          <p class="err" id="err-2" hidden>Add your name and a phone number or email so we can reach you.</p>
+        </fieldset>
+
+        <div class="done-msg" id="done" hidden>
+          <h3>Request received</h3>
+          <p id="done-text">We'll reply within two business days. For anything urgent, call or text 410-357-1406.</p>
+        </div>
+
+        <div class="form-nav" id="form-nav">
+          <button class="btn btn-ghost" type="button" id="back" hidden>Back</button>
+          <span class="spacer"></span>
+          <button class="btn btn-amber" type="button" id="next">Next <svg class="arrow"><use href="#arrow"/></svg></button>
+          <button class="btn btn-amber" type="submit" id="send" hidden>Send request</button>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>

@@ -21,6 +21,20 @@
   $$('a', menu).forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
 
+  /* Services dropdown */
+  var dd = $('#nav-dd'), ddBtn = $('#nav-dd-btn');
+  if (dd) {
+    var setDD = function (o) { dd.dataset.open = String(o); ddBtn.setAttribute('aria-expanded', String(o)); };
+    ddBtn.addEventListener('click', function (e) { e.stopPropagation(); setDD(dd.dataset.open !== 'true'); });
+    document.addEventListener('click', function (e) { if (!dd.contains(e.target)) setDD(false); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setDD(false); });
+  }
+
+  /* Page hero video on service pages */
+  var phv = $('.page-hero video');
+  if (phv) { if (reduce) phv.removeAttribute('autoplay'); else play(phv); }
+
+  if ($('#hero-video')) {
   /* Hero video: respect reduced motion, offer pause */
   var hv = $('#hero-video'), tog = $('#video-toggle');
   function setHero(on) {
@@ -31,6 +45,9 @@
   if (reduce) { hv.removeAttribute('autoplay'); setHero(false); } else { play(hv); }
   tog.addEventListener('click', function () { setHero(hv.paused); });
 
+  }
+
+  if ($('#svc')) {
   /* Services: one panel open, in job order */
   var items = $$('.svc-item'), caps = $$('#capsules span');
   var wide = window.matchMedia('(min-width: 981px)');
@@ -66,6 +83,9 @@
     a.addEventListener('click', function () { openSvc(Number(a.dataset.open)); });
   });
 
+  }
+
+  if ($('#proof-nav')) {
   /* Proof band video + reviews */
   var pv = $('#proof-video');
   if (pv && !reduce && 'IntersectionObserver' in window) {
@@ -93,6 +113,9 @@
     });
   });
 
+  }
+
+  if ($('#compare')) {
   /* Before and after */
   var cmp = $('#compare'), range = $('#compare-range');
   range.addEventListener('input', function () { cmp.style.setProperty('--pos', range.value + '%'); });
@@ -119,11 +142,16 @@
   });
   babtns.forEach(function (b) { [b.dataset.b, b.dataset.a].forEach(function (src) { var im = new Image(); im.src = src; }); });
 
+  }
+
+  if ($('#strip')) {
   /* Photo strip */
   var strip = $('#strip');
   var step = function (dir) { var f = $('figure', strip); strip.scrollBy({ left: dir * (f.offsetWidth + 14), behavior: reduce ? 'auto' : 'smooth' }); };
   $('#strip-prev').addEventListener('click', function () { step(-1); });
   $('#strip-next').addEventListener('click', function () { step(1); });
+
+  }
 
   /* Service area */
   var sbtns = $$('#states button');
@@ -135,6 +163,7 @@
     });
   });
 
+  if ($('#qform')) {
   /* Quote request: three steps */
   var form = $('#qform'), steps = $$('.fs', form), bars = $$('.progress span', form);
   var heads = ['What do you need?', 'About the job', 'How do we reach you?'];
@@ -166,6 +195,10 @@
       $$('input[name="service"]', form).forEach(function (c) { if (c.value === a.dataset.pick) c.checked = true; });
     });
   });
+  try {
+    var want = new URLSearchParams(window.location.search).get('service');
+    if (want) $$('input[name="service"]', form).forEach(function (c) { if (c.value === want) c.checked = true; });
+  } catch (err) {}
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     if (!valid(2)) return;
@@ -192,4 +225,6 @@
         err.textContent = 'Your request did not send. Try again, or call or text 410-357-1406.';
       });
   });
+  }
+
 })();
