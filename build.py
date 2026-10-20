@@ -32,7 +32,7 @@ BUSINESS = {
     "image": SITE + "/assets/video/hero.jpg",
     "telephone": "+1-410-357-1406",
     "email": "hello@avanttotalsolutions.com",
-    "address": {"@type": "PostalAddress", "streetAddress": "409 Chester Avenue", "addressLocality": "Annapolis", "addressRegion": "MD", "postalCode": "21403", "addressCountry": "US"},
+    "address": {"@type": "PostalAddress", "addressLocality": "Annapolis", "addressRegion": "MD", "addressCountry": "US"},
     "areaServed": ["Maryland", "Pennsylvania", "New Jersey", "Delaware"],
     "openingHoursSpecification": [
         {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "07:00", "closes": "16:00"},
@@ -144,7 +144,7 @@ def footer(home=False):
       <div><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="projects.html">Projects</a></li><li><a href="service-area.html">Service area</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy policy</a></li></ul></div>
       <div><h4>Contact</h4><ul><li><a href="tel:+14103571406">{PHONE}</a></li><li><a href="mailto:hello@avanttotalsolutions.com">hello@avanttotalsolutions.com</a></li><li><a href="https://www.linkedin.com/company/avant-total-solutions/">LinkedIn</a></li><li><a href="https://www.instagram.com/at.solutions__">Instagram</a></li></ul></div>
     </div>
-    <div class="foot-legal"><span>© 2026 Avant Total Solutions</span><span>409 Chester Avenue, Annapolis, MD 21403</span></div>
+    <div class="foot-legal"><span>© 2026 Avant Total Solutions</span><span>Annapolis, Maryland</span></div>
   </div>
 </footer>
 
@@ -178,7 +178,7 @@ def compare_block(pairs, heading):
     tags = "".join(f"<span>{t}</span>" for t in first["tags"].split("|"))
     tablist = f'<div class="ba-tabs" role="tablist" aria-label="Choose a project" id="ba-tabs">{tabs}</div>' if len(pairs) > 1 else ""
     return f"""
-  <section class="ba" id="work" aria-labelledby="work-title" style="padding-bottom: clamp(4rem, 8vw, 6.5rem)">
+  <section class="ba" id="work" aria-labelledby="work-title">
     <div class="wrap">
       <div class="ba-head">
         <div class="head-text"><span class="label">Before and after</span><h2 id="work-title">{heading}</h2></div>
@@ -286,7 +286,7 @@ def split_block(label, heading, paras, img, alt):
 def signs_block(label, heading, signs, note):
     lis = "".join(f"<li><b>{t}</b><span>{d}</span></li>" for t, d in signs)
     return f"""
-  <section class="sp" aria-labelledby="signs-title" style="padding-top: 0">
+  <section class="sp" aria-labelledby="signs-title">
     <div class="wrap">
       <div class="sp-head"><span class="label">{label}</span><h2 id="signs-title">{heading}</h2><p class="lede">{note}</p></div>
       <ul class="signs{" four" if len(signs) == 4 else ""}">{lis}</ul>
@@ -571,7 +571,7 @@ def about_body():
         ["We've been on the other side of the contract: waiting on callbacks, watching deadlines slip, hiring someone who said the right things and didn't follow through.",
          "Avant exists to be the crew we always wanted on our own jobs. That means showing up when we said we would, answering the phone, pricing the work line by line and leaving the site clean."],
         "assets/photo/veneer-closeup.webp", "Mason laying dark brick veneer") + lead + f"""
-  <section class="sp" aria-labelledby="promise-title" style="padding-top: 0">
+  <section class="sp" aria-labelledby="promise-title">
     <div class="wrap">
       <div class="sp-head"><span class="label">What you can expect</span><h2 id="promise-title">Four things on every job</h2></div>
       <ul class="signs four">
@@ -596,10 +596,10 @@ def about_body():
       </div>
     </div>
   </section>
-  <section class="cta-band dark" aria-label="Work with us">
+  <section class="cta-band dark" aria-label="Stay in touch">
     <div class="wrap">
-      <h2>Take pride in your trade? We're hiring.</h2>
-      <div class="acts"><a class="btn btn-amber" href="mailto:hello@avanttotalsolutions.com?subject=Joining%20the%20team">Email us about joining {ARROW}</a><a class="btn btn-ghost" href="contact.html">Request a quote</a></div>
+      <div class="cta-copy"><h2>Good at your trade? Let's stay in touch.</h2><p>We're always glad to meet skilled hands for future jobs. Send a note with your trade and where you work.</p></div>
+      <div class="acts"><a class="btn btn-amber" href="mailto:hello@avanttotalsolutions.com?subject=Introducing%20myself">Introduce yourself {ARROW}</a><a class="btn btn-ghost" href="contact.html">Request a quote</a></div>
     </div>
   </section>"""
 OTHER.append(dict(slug="about", name="About", title="About Avant Total Solutions | Annapolis Contractor",
@@ -646,7 +646,7 @@ OTHER.append(dict(slug="projects", name="Projects", title="Projects and Before-a
 
 # Service area
 REGIONS = [
-    ("Maryland", "Home base", "Our office is in Annapolis, and Anne Arundel County is home turf.",
+    ("Maryland", "Home base", "Annapolis is home base, and Anne Arundel County is home turf.",
      ["Anne Arundel County", "Baltimore City", "Baltimore County", "Howard County", "Prince George's County"], ["Annapolis", "Baltimore", "Columbia", "Glen Burnie", "Bowie"]),
     ("Pennsylvania", "Greater Philadelphia", "Philadelphia and the surrounding counties, from rowhome repairs to high-rise hoist work.",
      ["Philadelphia County", "Montgomery County", "Bucks County", "Chester County", "Delaware County"], ["Philadelphia", "Norristown", "Doylestown", "West Chester", "Media"]),
@@ -691,7 +691,6 @@ def contact_body():
           <p class="lede">Three short steps for a free, itemized quote. We reply within two business days. For anything urgent, call or text.</p>
         </div>
         {info}
-        <div class="map-link"><a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=409+Chester+Avenue+Annapolis+MD+21403">Open the office in Google Maps</a></div>
       </div>
       {form}
     </div>
@@ -717,7 +716,7 @@ def privacy_body():
       <h2>Who we share it with</h2>
       <p>We share information only with the services that run our business: our website host, our email provider, and the tools we use to receive and track quote requests. They process it on our behalf. We may also share information when the law requires it.</p>
       <h2>Cookies and third parties</h2>
-      <p>This site does not use advertising or tracking cookies. Our fonts load from Google Fonts, so Google receives your IP address when the page loads. Links to LinkedIn, Instagram and Google Maps take you to those sites, which have their own privacy policies.</p>
+      <p>This site does not use advertising or tracking cookies. Our fonts load from Google Fonts, so Google receives your IP address when the page loads. Links to LinkedIn and Instagram take you to those sites, which have their own privacy policies.</p>
       <h2>Photos of our work</h2>
       <p>Project photos on this site show our own work. We remove location data from every photo before we publish it. If you see a photo of your property and want it removed, email us and we'll take it down.</p>
       <h2>Keeping and deleting your information</h2>
@@ -727,7 +726,7 @@ def privacy_body():
       <h2>Changes</h2>
       <p>If we change this policy, we'll update the date at the top of this page.</p>
       <h2>Contact</h2>
-      <p>Avant Total Solutions, 409 Chester Avenue, Annapolis, MD 21403. Email hello@avanttotalsolutions.com or call {PHONE}.</p>
+      <p>Avant Total Solutions, Annapolis, Maryland. Email hello@avanttotalsolutions.com or call {PHONE}.</p>
     </div>
   </section>"""
 OTHER.append(dict(slug="privacy", name="Privacy policy", title="Privacy Policy | Avant Total Solutions",
