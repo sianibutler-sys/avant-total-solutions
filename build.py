@@ -3,7 +3,7 @@
 Home page body lives in src/home.html. Service pages are defined below."""
 import json, html
 
-SITE = "https://www.avanttotalsolutions.com"
+SITE = "https://avanttotalsolutions.com"
 PHONE = "410-357-1406"
 
 SERVICES = [
