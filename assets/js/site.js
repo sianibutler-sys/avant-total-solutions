@@ -144,7 +144,6 @@
 
   }
 
-  if ($('#strip')) {
   /* Project filters and small before/after cards */
   var chips = $$('#proj-filters button');
   if (chips.length) {
@@ -163,6 +162,7 @@
     r.addEventListener('input', function () { mc.style.setProperty('--pos', r.value + '%'); });
   });
 
+  if ($('#strip')) {
   /* Photo strip */
   var strip = $('#strip');
   var step = function (dir) { var f = $('figure', strip); strip.scrollBy({ left: dir * (f.offsetWidth + 14), behavior: reduce ? 'auto' : 'smooth' }); };
