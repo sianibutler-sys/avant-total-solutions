@@ -428,7 +428,7 @@ PAGES.append(dict(
         "assets/video/hoist.mp4", "Hoist manpower")
     + split_block("Why it matters", "Your hoist sets the pace of the site",
         ["Every delivery, every material move and every personnel lift runs through the hoist. When the operator falls behind, so does every trade waiting on the car.",
-         "Our operators are trained in the field by Jimmy Harris, a Local 542 hoist operator who has also laid brick with BAC Local 1. They know what's riding on each load and how to keep several trades moving at once."],
+         "Our operators are trained in the field by Jimmy Harris, who has run hoists with IUOE Local 542 for 12 years and laid brick with BAC Local 1 for 20. They know what's riding on each load and how to keep several trades moving at once."],
         "assets/photo/crew-handshake.webp", "Jimmy Harris on site at 12th and Spring Garden in Philadelphia")
     + scope_block([
         ("Equipment we run", ["Outside construction hoists", "Inside personnel elevators", "Inside material elevators"]),
